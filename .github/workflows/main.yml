@@ -1,0 +1,24 @@
+name: Пример GitHub Actions
+
+on:
+  push:
+    branches:
+      - main
+  pull_request:
+    branches:
+      - main
+
+jobs:
+  build:
+    runs-on: ubuntu-latest
+
+    steps:
+    - uses: actions/checkout@v2
+
+    - name: Установка зависимостей
+      run: |
+        npm install
+
+    - name: Запуск тестов
+      run: |
+        npm test
